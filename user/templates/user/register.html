@@ -1,23 +1,32 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>注册</title>
+    <script src="{% static 'js/register.js' %}"></script>
 </head>
 <body>
-    <form action="/user/register" method="post">
+    <form action="/user/register" method="post" onsubmit="return submit_check()">
         <p>
-            用户名 <input type="text" name="username">
+            <label for="username">用户名</label>
+            <input type="text" name="username" id="username" onkeyup="username_check()" onfocus="tips_cancel()">
+            <span id="username_hint"></span>
         </p>
         <p>
-            密码 <input type="password" name="password1">
+            <label for="password1">密码</label>
+            <input type="password" name="password1" id="password1" onkeyup="password1_check()">
+            <span id="password1_hint"></span>
         </p>
         <p>
-            重复密码 <input type="password" name="password2">
+            <label for="password2">重复密码</label>
+            <input type="password" name="password2" id="password2" onkeyup="password2_check()">
+            <span id="password2_hint"></span>
         </p>
         <p>
             <input type="submit" value="注册">
         </p>
+        <p id="tips"> {{ tips }}</p>
     </form>
 </body>
 </html>
