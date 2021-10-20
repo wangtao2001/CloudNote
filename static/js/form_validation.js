@@ -45,8 +45,11 @@ function password2_check() {
 /*
 * 阻止表单提交 提示会存在短路
 */
-function submit_check() {
-	return username_check() && password1_check() && password2_check();
+function submit_check(s) {
+	if (s === 'register')
+	    return username_check() && password1_check() && password2_check()
+	else if (s==='login')
+		return username_check() && password1_check()
 }
 
 /**

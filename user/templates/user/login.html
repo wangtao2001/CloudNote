@@ -3,11 +3,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>注册</title>
+    <title>登录</title>
     <script src="{% static 'js/form_validation.js' %}"></script>
 </head>
 <body>
-    <form action="/user/register" method="post" onsubmit="return submit_check('register')">
+    <form method="post" action="/user/login" onsubmit="return submit_check('login')">
         <p>
             <label for="username">用户名</label>
             <input type="text" name="username" id="username" onkeyup="username_check()" onfocus="tips_cancel()">
@@ -19,12 +19,11 @@
             <span id="password1_hint"></span>
         </p>
         <p>
-            <label for="password2">重复密码</label>
-            <input type="password" name="password2" id="password2" onkeyup="password2_check()">
-            <span id="password2_hint"></span>
+            <input type="checkbox" name="remember" id="remember">
+            <label for="remember">记住用户名</label>
         </p>
         <p>
-            <input type="submit" value="注册">
+            <input type="submit" value="登录">
         </p>
         <p id="tips"> {{ tips }}</p>
     </form>
