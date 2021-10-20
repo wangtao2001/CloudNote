@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-from database import *
+from . import database
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -84,8 +84,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'cloudnote',
         'USER': 'root',
-        'PASSWORD': PASSWORD,
-        'HOST': HOST,
+        'PASSWORD': database.PASSWORD,
+        'HOST': database.HOST,
         'PORT': '3306'
     }
 }
