@@ -14,6 +14,7 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/index/templates/index" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/user/templates/user" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -32,6 +33,7 @@
       <list>
         <option value="$MODULE_DIR$/templates" />
         <option value="$MODULE_DIR$/user/templates" />
+        <option value="$MODULE_DIR$/index/templates" />
       </list>
     </option>
   </component>
