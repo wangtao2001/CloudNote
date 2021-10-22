@@ -20,5 +20,6 @@ from index import views as index_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
+    path('note/', include('note.urls')),
     path('', index_views.index_view)
 ]

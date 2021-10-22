@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加笔记</title>
+</head>
+<body>
+    <form action="/note/add_note" method="post">
+        <p>
+            <label for="title">标题：</label>
+            <input type="text" id="title" name="title">
+            <input type="submit" value="保存">
+        </p>
+        <p>
+            <label for="content"></label>
+            <textarea cols="30" rows="10" name="content" id="content"></textarea>
+        </p>
+        <p>
+            <a href="/note/all_note">返回列表页</a>
+        </p>
+    </form>
+</body>
+</html>

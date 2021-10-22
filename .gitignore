@@ -1,3 +1,5 @@
 /CloudNote/database.py
 /user/migrations/
 /index/migrations/
+/note/migrations/
+/.idea/
