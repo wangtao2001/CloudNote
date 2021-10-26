@@ -1,6 +1,8 @@
 from django.db.utils import IntegrityError
 from django.shortcuts import render
 from django.http import *
+from django.utils.datastructures import MultiValueDict
+
 from . import models
 import hashlib
 
@@ -42,7 +44,12 @@ def login_view(request: HttpRequest):
             request.session['username'] = c_username
             request.session['uid'] = c_uid
             return HttpResponseRedirect('/')
-        return render(request, 'user/login.html')
+
+        # 直接访问login界面的时候next参数为空
+        next_ = request.GET.get('next')
+        if not next_:
+            next_ = ""
+        return render(request, 'user/login.html', locals())
     elif request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password1']
@@ -57,12 +64,16 @@ def login_view(request: HttpRequest):
         request.session['username'] = username
         request.session['uid'] = user.id
 
-        resp = HttpResponseRedirect('/')
+        next_ = request.GET['next']
+        if next_:
+            resp = HttpResponseRedirect(next_)
+        else:
+            resp = HttpResponseRedirect('/')
         if 'remember' in request.POST:
             resp.set_cookie('username', username, 3600*24*3)
             resp.set_cookie('uid', user.id, 3600*24*3)
 
-        return resp  # 做一个重定向到用户笔记页
+        return resp
     else:
         pass
 

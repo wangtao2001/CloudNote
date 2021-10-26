@@ -7,7 +7,7 @@ def login_check(func):
             c_username = request.COOKIES.get('username')
             c_uid = request.COOKIES.get('uid')
             if not c_uid or c_username:
-                return HttpResponseRedirect('/user/login')
+                return HttpResponseRedirect(f'/user/login?next={request.path_info}')
             else:
                 request.session['username'] = c_username
                 request.session['c_uid'] = c_uid

@@ -7,7 +7,7 @@
     <script src="{% static 'js/form_validation.js' %}"></script>
 </head>
 <body>
-    <form method="post" action="/user/login" onsubmit="return submit_check('login')">
+    <form method="post" action="/user/login?next={{ next_ }}" onsubmit="return submit_check('login')">
         <p>
             <label for="username">用户名</label>
             <input type="text" name="username" id="username" onkeyup="username_check()" onfocus="tips_cancel()">
@@ -26,6 +26,9 @@
             <input type="submit" value="登录">
         </p>
         <p id="tips"> {{ tips }}</p>
+        <p>
+            <a href="/user/register">去注册</a>
+        </p>
     </form>
 </body>
 </html>
